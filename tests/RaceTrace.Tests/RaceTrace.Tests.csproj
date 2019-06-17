@@ -1,0 +1,52 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <!-- AutoFixture.AutoMoq depends Castle.Core 4.0.0 which in turn depend on 
+    System.ComponentModel.TypeConverter 4.0.1, this generates a warning as a match of 4.1.0 is resolved -->
+    <!--use binding redirect possibly-->
+    <NoWarn>NU1603</NoWarn>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoFixture.AutoMoq" Version="4.9.0" />
+    <PackageReference Include="AutoFixture.Xunit2" Version="4.9.0" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.9.0" />
+    <PackageReference Include="xunit" Version="2.4.0" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.4.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Core\Core.csproj" />
+    <ProjectReference Include="..\..\src\Infrastructure\Infrastructure.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Infrastructure\ErgastResponses\DriverResponse.json" />
+    <None Remove="Infrastructure\ErgastResponses\DriverResponseForLapRequest.json" />
+    <None Remove="Infrastructure\ErgastResponses\LapTimeResponse.json" />
+    <None Remove="Infrastructure\ErgastResponses\RaceListResponse.json" />
+    <None Remove="Infrastructure\ErgastResponses\RaceResultResponse.json" />
+    <Content Include="Infrastructure\ErgastResponses\LapTimeResponse.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Infrastructure\ErgastResponses\DriverResponseForLapRequest.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Infrastructure\ErgastResponses\RaceResultResponse.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Infrastructure\ErgastResponses\RaceListResponse.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Infrastructure\ErgastResponses\DriverResponse.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+</Project>
